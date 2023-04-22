@@ -1,0 +1,10 @@
+{
+  // This file is included in the repo only to prevent *seeing* import errors in VS Code.
+  // It does not affect the logic otherwise.
+  "python.venvPath": "${workspaceFolder}/.venv",
+  "python.analysis.extraPaths": [
+    "${workspaceFolder}/support/",
+    "${workspaceFolder}/helpers/"
+  ],
+  "python.globalModuleInstallation": true
+}
