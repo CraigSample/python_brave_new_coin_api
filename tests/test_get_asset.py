@@ -93,9 +93,10 @@ def test_get_asset_04(session):
 
 @mark.regression
 @mark.asset
+@mark.negative
 def test_get_asset_05(session):
     '''
-    Test the GET /asset endpoint with an invalid symbol parameter.
+    Test the GET /asset endpoint with an invalid symbol parameter: unknown.
 
     Args:
         session (fixture): The requests session fixture.
@@ -115,7 +116,27 @@ def test_get_asset_05(session):
 @mark.negative
 def test_get_asset_06(session):
     '''
-    Test the GET /asset endpoint with an invalid type parameter.
+    Test the GET /asset endpoint with an invalid status parameter: unknown.
+
+    Args:
+        session (fixture): The requests session fixture.
+    '''
+    status = 'BOGUS'
+
+    response = brave_new_world_api.get_asset(session, 400, status=status)
+    response_json = response.json()
+    LOGGER.debug('response_json: %s', json.dumps(response_json, indent=2)[:1500])
+
+    assert response_json['status'] == 'BAD_REQUEST', 'The returned response was expected to ' + \
+        f"have status 'BAD_REQUEST'. Found: {response_json['status']!a}."
+
+
+@mark.regression
+@mark.asset
+@mark.negative
+def test_get_asset_07(session):
+    '''
+    Test the GET /asset endpoint with the type parameter: unknown.
 
     Args:
         session (fixture): The requests session fixture.
@@ -129,18 +150,56 @@ def test_get_asset_06(session):
     assert response_json['status'] == 'BAD_REQUEST', 'The returned response was expected to ' + \
         f"have status 'BAD_REQUEST'. Found: {response_json['status']!a}."
 
-
 @mark.regression
 @mark.asset
-@mark.negative
-def test_get_asset_07(session):
+def test_get_asset_08(session):
     '''
-    Test the GET /asset endpoint with the type parameter.
+    Test the GET /asset endpoint with an invalid symbol parameter: lower case.
 
     Args:
         session (fixture): The requests session fixture.
     '''
-    asset_type = 'BOGUS'
+    symbol = 'btc'
+
+    response = brave_new_world_api.get_asset(session, 200, symbol=symbol)
+    response_json = response.json()
+    LOGGER.debug('response_json: %s', json.dumps(response_json, indent=2)[:1500])
+
+    assert len(response_json) == 0, 'The number of returned results is expected to be 0. ' + \
+        f'Found: {len(response_json)}.'
+
+
+@mark.regression
+@mark.asset
+@mark.negative
+def test_get_asset_09(session):
+    '''
+    Test the GET /asset endpoint with an invalid status parameter: lower case.
+
+    Args:
+        session (fixture): The requests session fixture.
+    '''
+    status = 'active'
+
+    response = brave_new_world_api.get_asset(session, 400, status=status)
+    response_json = response.json()
+    LOGGER.debug('response_json: %s', json.dumps(response_json, indent=2)[:1500])
+
+    assert response_json['status'] == 'BAD_REQUEST', 'The returned response was expected to ' + \
+        f"have status 'BAD_REQUEST'. Found: {response_json['status']!a}."
+
+
+@mark.regression
+@mark.asset
+@mark.negative
+def test_get_asset_10(session):
+    '''
+    Test the GET /asset endpoint with the type parameter: lower case.
+
+    Args:
+        session (fixture): The requests session fixture.
+    '''
+    asset_type = 'crypto'
 
     response = brave_new_world_api.get_asset(session, 400, asset_type=asset_type)
     response_json = response.json()

@@ -179,9 +179,9 @@ def get_market(session: requests.sessions.Session,
       session (requests.sessions.Session): The requests session to use.
       expected_response (int): The expected response code.
       base_asset_id (str, optional): Only return markets which contain the asset id on the base
-        side of the market.
-      quote_asset_id (str, optional):Only return markets which contain the asset id on the quote
-        side of the market.
+        side of the market. Defaults to None.
+      quote_asset_id (str, optional): Only return markets which contain the asset id on the quote
+        side of the market. Defaults to None.
 
     Returns:
       requests.models.Response: The response of the call.
