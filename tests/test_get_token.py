@@ -5,7 +5,7 @@ import logging
 
 from pytest import mark
 
-from helpers import brave_new_world_api
+from . import brave_new_coin_api
 from support import constants, validations
 
 LOGGER = logging.getLogger(__name__)
@@ -22,7 +22,7 @@ def test_get_token_01():
         'grant_type': "client_credentials"
     }
 
-    response = brave_new_world_api.post_get_token(200, payload_dict)
+    response = brave_new_coin_api.post_get_token(200, payload_dict)
     response_json = response.json()
 
     access_token = response_json["access_token"]
@@ -47,7 +47,7 @@ def test_get_token_02():
         'client_id': constants.BNC_CLIENT_ID
     }
 
-    response = brave_new_world_api.post_get_token(400, payload_dict)
+    response = brave_new_coin_api.post_get_token(400, payload_dict)
     assert response.reason == 'Bad Request', 'The response.reason is expected to be ' \
         f"'Bad Request'. Found: {response.reason!a}."
 
@@ -65,7 +65,7 @@ def test_get_token_03():
         'grant_type': "client_credentials2"
     }
 
-    response = brave_new_world_api.post_get_token(403, payload_dict)
+    response = brave_new_coin_api.post_get_token(403, payload_dict)
 
     assert response.reason == 'Forbidden', 'The response.reason is expected to be ' \
         f"'Forbidden'. Found: {response.reason!a}."

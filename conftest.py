@@ -7,7 +7,7 @@ import logging
 import pytest
 import requests
 
-from helpers import brave_new_world_api
+from . import brave_new_coin_api
 from support import constants
 
 LOGGER = logging.getLogger(__name__)
@@ -27,7 +27,7 @@ def fixture_get_access_token() -> dict:
         'grant_type': "client_credentials"
     }
 
-    response = brave_new_world_api.post_get_token(200, payload_dict)
+    response = brave_new_coin_api.post_get_token(200, payload_dict)
 
     response_json = response.json()
     LOGGER.debug('response_json: %s', json.dumps(response_json, indent=2))

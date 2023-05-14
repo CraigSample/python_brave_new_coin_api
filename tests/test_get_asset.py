@@ -6,7 +6,7 @@ import logging
 
 from pytest import mark
 
-from helpers import brave_new_world_api
+from . import brave_new_coin_api
 from support import validations
 
 LOGGER = logging.getLogger(__name__)
@@ -22,7 +22,7 @@ def test_get_asset_01(session):
         session (fixture): The requests session fixture.
     '''
 
-    response = brave_new_world_api.get_asset(session, 200)
+    response = brave_new_coin_api.get_asset(session, 200)
     response_json = response.json()
     LOGGER.debug('response_json: %s', json.dumps(response_json, indent=2)[:1500])
 
@@ -40,7 +40,7 @@ def test_get_asset_02(session):
     '''
     symbol = 'DOT'
 
-    response = brave_new_world_api.get_asset(session, 200, symbol=symbol)
+    response = brave_new_coin_api.get_asset(session, 200, symbol=symbol)
     response_json = response.json()
     LOGGER.debug('response_json: %s', json.dumps(response_json, indent=2)[:1500])
 
@@ -60,7 +60,7 @@ def test_get_asset_03(session):
     '''
     status = 'INACTIVE'
 
-    response = brave_new_world_api.get_asset(session, 200, status=status)
+    response = brave_new_coin_api.get_asset(session, 200, status=status)
     response_json = response.json()
     LOGGER.debug('response_json: %s', json.dumps(response_json, indent=2)[:1500])
 
@@ -81,7 +81,7 @@ def test_get_asset_04(session):
     '''
     asset_type = 'FIAT'
 
-    response = brave_new_world_api.get_asset(session, 200, asset_type=asset_type)
+    response = brave_new_coin_api.get_asset(session, 200, asset_type=asset_type)
     response_json = response.json()
     LOGGER.debug('response_json: %s', json.dumps(response_json, indent=2)[:1500])
 
@@ -103,7 +103,7 @@ def test_get_asset_05(session):
     '''
     symbol = 'BOGUS'
 
-    response = brave_new_world_api.get_asset(session, 200, symbol=symbol)
+    response = brave_new_coin_api.get_asset(session, 200, symbol=symbol)
     response_json = response.json()
     LOGGER.debug('response_json: %s', json.dumps(response_json, indent=2)[:1500])
 
@@ -123,7 +123,7 @@ def test_get_asset_06(session):
     '''
     status = 'BOGUS'
 
-    response = brave_new_world_api.get_asset(session, 400, status=status)
+    response = brave_new_coin_api.get_asset(session, 400, status=status)
     response_json = response.json()
     LOGGER.debug('response_json: %s', json.dumps(response_json, indent=2)[:1500])
 
@@ -143,7 +143,7 @@ def test_get_asset_07(session):
     '''
     asset_type = 'BOGUS'
 
-    response = brave_new_world_api.get_asset(session, 400, asset_type=asset_type)
+    response = brave_new_coin_api.get_asset(session, 400, asset_type=asset_type)
     response_json = response.json()
     LOGGER.debug('response_json: %s', json.dumps(response_json, indent=2)[:1500])
 
@@ -161,7 +161,7 @@ def test_get_asset_08(session):
     '''
     symbol = 'btc'
 
-    response = brave_new_world_api.get_asset(session, 200, symbol=symbol)
+    response = brave_new_coin_api.get_asset(session, 200, symbol=symbol)
     response_json = response.json()
     LOGGER.debug('response_json: %s', json.dumps(response_json, indent=2)[:1500])
 
@@ -181,7 +181,7 @@ def test_get_asset_09(session):
     '''
     status = 'active'
 
-    response = brave_new_world_api.get_asset(session, 400, status=status)
+    response = brave_new_coin_api.get_asset(session, 400, status=status)
     response_json = response.json()
     LOGGER.debug('response_json: %s', json.dumps(response_json, indent=2)[:1500])
 
@@ -201,7 +201,7 @@ def test_get_asset_10(session):
     '''
     asset_type = 'crypto'
 
-    response = brave_new_world_api.get_asset(session, 400, asset_type=asset_type)
+    response = brave_new_coin_api.get_asset(session, 400, asset_type=asset_type)
     response_json = response.json()
     LOGGER.debug('response_json: %s', json.dumps(response_json, indent=2)[:1500])
 

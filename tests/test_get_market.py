@@ -6,7 +6,7 @@ import logging
 
 from pytest import mark
 
-from helpers import brave_new_world_api
+from . import brave_new_coin_api
 from support import constants, validations
 
 LOGGER = logging.getLogger(__name__)
@@ -22,7 +22,7 @@ def test_get_market_01(session):
         session (fixture): The requests session fixture.
     '''
 
-    response = brave_new_world_api.get_market(session, 200)
+    response = brave_new_coin_api.get_market(session, 200)
     response_json = response.json()
     LOGGER.debug('response_json: %s', json.dumps(response_json, indent=2)[:1500])
 
@@ -40,7 +40,7 @@ def test_get_market_02(session):
     '''
     base_asset_id = constants.BTC_ASSET_ID
 
-    response = brave_new_world_api.get_market(session, 200, base_asset_id=base_asset_id)
+    response = brave_new_coin_api.get_market(session, 200, base_asset_id=base_asset_id)
     response_json = response.json()
     LOGGER.debug('response_json: %s', json.dumps(response_json, indent=2)[:1500])
 
@@ -61,7 +61,7 @@ def test_get_market_03(session):
     '''
     quote_asset_id = constants.USD_ASSET_ID
 
-    response = brave_new_world_api.get_market(session, 200, quote_asset_id=quote_asset_id)
+    response = brave_new_coin_api.get_market(session, 200, quote_asset_id=quote_asset_id)
     response_json = response.json()
     LOGGER.debug('response_json: %s', json.dumps(response_json, indent=2)[:1500])
 
@@ -83,7 +83,7 @@ def test_get_market_04(session):
     base_asset_id = constants.BTC_ASSET_ID
     quote_asset_id = constants.USD_ASSET_ID
 
-    response = brave_new_world_api.get_market(session,
+    response = brave_new_coin_api.get_market(session,
                                               200,
                                               base_asset_id=base_asset_id,
                                               quote_asset_id=quote_asset_id)
@@ -110,7 +110,7 @@ def test_get_market_05(session):
     '''
     base_asset_id = 'BOGUS'
 
-    response = brave_new_world_api.get_market(session, 400, base_asset_id=base_asset_id)
+    response = brave_new_coin_api.get_market(session, 400, base_asset_id=base_asset_id)
     response_json = response.json()
     LOGGER.debug('response_json: %s', json.dumps(response_json, indent=2)[:1500])
 
@@ -129,7 +129,7 @@ def test_get_market_06(session):
     '''
     base_asset_id = constants.UNKNOWN_ASSET_ID
 
-    response = brave_new_world_api.get_market(session, 200, base_asset_id=base_asset_id)
+    response = brave_new_coin_api.get_market(session, 200, base_asset_id=base_asset_id)
     response_json = response.json()
     LOGGER.debug('response_json: %s', json.dumps(response_json, indent=2)[:1500])
 
@@ -148,7 +148,7 @@ def test_get_market_07(session):
     '''
     quote_asset_id = 'BOGUS'
 
-    response = brave_new_world_api.get_market(session, 400, quote_asset_id=quote_asset_id)
+    response = brave_new_coin_api.get_market(session, 400, quote_asset_id=quote_asset_id)
     response_json = response.json()
     LOGGER.debug('response_json: %s', json.dumps(response_json, indent=2)[:1500])
 
@@ -167,7 +167,7 @@ def test_get_market_08(session):
     '''
     base_asset_id = constants.UNKNOWN_ASSET_ID
 
-    response = brave_new_world_api.get_market(session, 200, base_asset_id=base_asset_id)
+    response = brave_new_coin_api.get_market(session, 200, base_asset_id=base_asset_id)
     response_json = response.json()
     LOGGER.debug('response_json: %s', json.dumps(response_json, indent=2)[:1500])
 
@@ -186,7 +186,7 @@ def test_get_market_09(session):
     '''
     quote_asset_id = constants.UNKNOWN_ASSET_ID
 
-    response = brave_new_world_api.get_market(session, 200, quote_asset_id=quote_asset_id)
+    response = brave_new_coin_api.get_market(session, 200, quote_asset_id=quote_asset_id)
     response_json = response.json()
     LOGGER.debug('response_json: %s', json.dumps(response_json, indent=2)[:1500])
 
