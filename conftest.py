@@ -7,7 +7,7 @@ import logging
 import pytest
 import requests
 
-from . import brave_new_coin_api
+from helpers import brave_new_coin_api
 from support import constants
 
 LOGGER = logging.getLogger(__name__)

@@ -6,7 +6,7 @@ import logging
 
 from pytest import mark
 
-from . import brave_new_coin_api
+from helpers import brave_new_coin_api
 from support import validations
 
 LOGGER = logging.getLogger(__name__)
