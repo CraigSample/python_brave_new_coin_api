@@ -12,6 +12,7 @@ LOGGER = logging.getLogger(__name__)
 
 @mark.regression
 @mark.token
+@mark.token_1
 def test_get_token_01():
     '''
     Test the POST GetToken endpoint with a proper payload.
@@ -38,6 +39,7 @@ def test_get_token_01():
 @mark.regression
 @mark.token
 @mark.negative
+@mark.token_2
 def test_get_token_02():
     '''
     Test the POST GetToken endpoint with an incorrect payload: missing key.
@@ -55,6 +57,7 @@ def test_get_token_02():
 @mark.regression
 @mark.token
 @mark.negative
+@mark.token_3
 def test_get_token_03():
     '''
     Test the POST GetToken endpoint with an incorrect payload: incorrect key value.

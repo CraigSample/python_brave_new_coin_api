@@ -14,6 +14,7 @@ LOGGER = logging.getLogger(__name__)
 
 @mark.regression
 @mark.asset
+@mark.asset_1
 def test_get_asset_01(session):
     '''
     Test the GET /asset endpoint with no parameters.
@@ -31,6 +32,7 @@ def test_get_asset_01(session):
 
 @mark.regression
 @mark.asset
+@mark.asset_2
 def test_get_asset_02(session):
     '''
     Test the GET /asset endpoint with the symbol parameter.
@@ -51,6 +53,7 @@ def test_get_asset_02(session):
 
 @mark.regression
 @mark.asset
+@mark.asset_3
 def test_get_asset_03(session):
     '''
     Test the GET /asset endpoint with the status parameter.
@@ -72,6 +75,7 @@ def test_get_asset_03(session):
 
 @mark.regression
 @mark.asset
+@mark.asset_4
 def test_get_asset_04(session):
     '''
     Test the GET /asset endpoint with the type parameter.
@@ -94,6 +98,7 @@ def test_get_asset_04(session):
 @mark.regression
 @mark.asset
 @mark.negative
+@mark.asset_5
 def test_get_asset_05(session):
     '''
     Test the GET /asset endpoint with an invalid symbol parameter: unknown.
@@ -114,6 +119,7 @@ def test_get_asset_05(session):
 @mark.regression
 @mark.asset
 @mark.negative
+@mark.asset_6
 def test_get_asset_06(session):
     '''
     Test the GET /asset endpoint with an invalid status parameter: unknown.
@@ -134,6 +140,7 @@ def test_get_asset_06(session):
 @mark.regression
 @mark.asset
 @mark.negative
+@mark.asset_7
 def test_get_asset_07(session):
     '''
     Test the GET /asset endpoint with the type parameter: unknown.
@@ -152,6 +159,7 @@ def test_get_asset_07(session):
 
 @mark.regression
 @mark.asset
+@mark.asset_8
 def test_get_asset_08(session):
     '''
     Test the GET /asset endpoint with an invalid symbol parameter: lower case.
@@ -172,6 +180,7 @@ def test_get_asset_08(session):
 @mark.regression
 @mark.asset
 @mark.negative
+@mark.asset_9
 def test_get_asset_09(session):
     '''
     Test the GET /asset endpoint with an invalid status parameter: lower case.
@@ -192,6 +201,7 @@ def test_get_asset_09(session):
 @mark.regression
 @mark.asset
 @mark.negative
+@mark.asset_10
 def test_get_asset_10(session):
     '''
     Test the GET /asset endpoint with the type parameter: lower case.

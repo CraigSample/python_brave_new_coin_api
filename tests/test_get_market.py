@@ -14,6 +14,7 @@ LOGGER = logging.getLogger(__name__)
 
 @mark.regression
 @mark.market
+@mark.market_1
 def test_get_market_01(session):
     '''
     Test the GET /market endpoint with no parameters.
@@ -31,6 +32,7 @@ def test_get_market_01(session):
 
 @mark.regression
 @mark.market
+@mark.market_2
 def test_get_market_02(session):
     '''
     Test the GET /market endpoint with the baseAssetId parameter.
@@ -52,6 +54,7 @@ def test_get_market_02(session):
 
 @mark.regression
 @mark.market
+@mark.market_3
 def test_get_market_03(session):
     '''
     Test the GET /market endpoint with the quoteAssetId parameter.
@@ -73,6 +76,7 @@ def test_get_market_03(session):
 
 @mark.regression
 @mark.market
+@mark.market_4
 def test_get_market_04(session):
     '''
     Test the GET /market endpoint with the baseAssetId and quoteAssetId parameters.
@@ -101,6 +105,7 @@ def test_get_market_04(session):
 @mark.regression
 @mark.market
 @mark.negative
+@mark.market_5
 def test_get_market_05(session):
     '''
     Test the GET /market endpoint with an invalid baseAssetId parameter.
@@ -120,6 +125,7 @@ def test_get_market_05(session):
 @mark.regression
 @mark.market
 @mark.negative
+@mark.market_6
 def test_get_market_06(session):
     '''
     Test the GET /market endpoint with an unknown to the system baseAssetId parameter.
@@ -139,6 +145,7 @@ def test_get_market_06(session):
 @mark.regression
 @mark.market
 @mark.negative
+@mark.market_7
 def test_get_market_07(session):
     '''
     Test the GET /market endpoint with an invalid quote_asset_id parameter.
@@ -158,6 +165,7 @@ def test_get_market_07(session):
 @mark.regression
 @mark.market
 @mark.negative
+@mark.market_8
 def test_get_market_08(session):
     '''
     Test the GET /market endpoint with an unknown to the system baseAssetId parameter.
@@ -177,6 +185,7 @@ def test_get_market_08(session):
 @mark.regression
 @mark.market
 @mark.negative
+@mark.market_9
 def test_get_market_09(session):
     '''
     Test the GET /market endpoint with an unknown to the system quoteAssetId parameter.
